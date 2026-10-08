@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cadler D'ahiti | Portfolio</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap">
+<style>
+:root{
+  --bg:#D9C3A3; --paper:#EFE2CB; --ink:#17301F; --muted:#3F5644;
+  --green:#1F3D2B; --on-green:#EAD9BC; --on-green-muted:#B9C4AC;
+  --brown:#A9825A; --line:#B89C74;
+  --font:"Bricolage Grotesque",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#14261B;--paper:#1D3526;--ink:#EAD9BC;--muted:#B9C4AC;
+    --green:#0C1811;--line:#3B5644;--brown:#C9A77C}
+}
+:root[data-theme="dark"]{--bg:#14261B;--paper:#1D3526;--ink:#EAD9BC;--muted:#B9C4AC;
+  --green:#0C1811;--line:#3B5644;--brown:#C9A77C}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 4rem)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:1.0625rem;line-height:1.55}
+a{color:inherit;text-underline-offset:.2em;text-decoration-thickness:2px}
+a:focus-visible,textarea:focus-visible{outline:3px solid var(--brown);outline-offset:3px}
+.wrap{max-width:66rem;margin:0 auto;padding:0 1.25rem}
+p{margin:0 0 1rem;max-width:38rem}
+h2{font-weight:800;font-size:clamp(2rem,6vw,3.2rem);line-height:1;letter-spacing:-.02em;margin:0 0 2rem}
+
+/* nav */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--green);color:var(--on-green)}
+.top .wrap{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding-top:.8rem;padding-bottom:.8rem}
+.top .me{font-weight:800;text-decoration:none;font-size:1.1rem}
+.top nav{display:flex;flex-wrap:wrap;gap:.4rem 1.1rem;font-size:.95rem}
+.top nav a{text-decoration:none}
+.top nav a:hover{text-decoration:underline;text-decoration-color:var(--brown)}
+@media (max-width:30rem){.top .me{display:none}.top nav{width:100%;justify-content:space-between}}
+
+/* hero: the instrument is the opening */
+.hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:2.5rem;align-items:end;
+  padding:clamp(2.5rem,7vw,5rem) 0 clamp(3rem,7vw,5rem)}
+.hero h1{margin:0;font-weight:800;font-size:clamp(2.7rem,8.5vw,5.6rem);line-height:.92;letter-spacing:-.035em}
+.hero .who{margin:1.5rem 0 0;font-size:1.2rem;color:var(--muted);max-width:30rem}
+.inst{background:var(--green);color:var(--on-green);padding:1.25rem;border-radius:1.25rem 1.25rem 1.25rem 0}
+.inst label{display:block;font-weight:600;margin-bottom:.6rem}
+.inst textarea{display:block;width:100%;min-height:7.5rem;resize:vertical;border:0;border-radius:.6rem;
+  padding:.8rem;font:inherit;font-size:1rem;background:var(--on-green);color:#17301F}
+.gauge{margin-top:1rem}
+.gauge .lab{display:flex;justify-content:space-between;font-size:.92rem}
+.gauge .lab b{font-variant-numeric:tabular-nums}
+.gauge .track{height:.7rem;background:rgba(234,217,188,.18);border-radius:1rem;margin-top:.3rem;overflow:hidden}
+.gauge .bar{height:100%;width:0;background:var(--brown);border-radius:1rem;transition:width .35s ease}
+.inst .fine{font-size:.85rem;color:var(--on-green-muted);margin:1rem 0 0}
+@media (max-width:52rem){.hero{grid-template-columns:1fr;align-items:start}}
+
+/* sections */
+section{padding:clamp(3rem,7vw,5rem) 0;border-top:2px solid var(--ink)}
+
+/* scef chain */
+.chain{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:.75rem;align-items:stretch;margin-bottom:2.5rem}
+.chain .step{background:var(--paper);border:2px solid var(--ink);border-radius:1rem;padding:1.1rem}
+.chain .step:last-child{background:var(--green);color:var(--on-green);border-color:var(--green)}
+.chain h3{margin:0 0 .3rem;font-size:1.25rem;font-weight:800;line-height:1.1}
+.chain p{margin:0;font-size:.95rem}
+.chain .to{align-self:center;width:2rem;height:2px;background:var(--ink);position:relative}
+.chain .to::after{content:"";position:absolute;right:0;top:-5px;border:6px solid transparent;border-left-color:var(--ink);border-right:0}
+@media (max-width:46rem){.chain{grid-template-columns:1fr}
+  .chain .to{width:2px;height:1.5rem;justify-self:center}
+  .chain .to::after{right:-5px;top:auto;bottom:0;border:6px solid transparent;border-top-color:var(--ink);border-bottom:0}}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:2.5rem}
+@media (max-width:46rem){.two{grid-template-columns:1fr;gap:1.5rem}}
+.eq{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-size:clamp(1.3rem,4.5vw,2rem);
+  white-space:nowrap;overflow-x:auto;padding:.25rem 0 1rem;border-bottom:2px solid var(--brown);margin-bottom:1rem}
+
+/* research index */
+.index{list-style:none;margin:0;padding:0}
+.index li{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:.4rem 2.5rem;padding:1.25rem 0;border-top:1px solid var(--line)}
+.index li:first-child{border-top:0;padding-top:0}
+.index h3{margin:0;font-size:1.3rem;font-weight:800;line-height:1.15}
+.index .meta{color:var(--muted);font-size:.95rem;margin-top:.2rem}
+.index p{margin:0}
+@media (max-width:46rem){.index li{grid-template-columns:1fr}}
+
+/* built */
+.built{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:0;border:2px solid var(--ink);border-radius:1rem;overflow:hidden;background:var(--ink)}
+.built>div{background:var(--paper);padding:1.25rem;margin:0 -1px -1px 0;outline:1px solid var(--ink)}
+.built h3{margin:0 0 .15rem;font-size:1.2rem;font-weight:800}
+.built .kind{color:var(--brown);font-weight:600;font-size:.92rem;margin-bottom:.5rem}
+:root:not([data-theme="dark"]) .built .kind{color:#7A5A36}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .built .kind{color:var(--brown)}}
+:root[data-theme="dark"] .built .kind{color:var(--brown)}
+.built p{margin:0;font-size:.97rem}
+
+/* about */
+.photo{aspect-ratio:4/5;max-width:22rem;width:100%;border-radius:10rem 10rem 1rem 1rem;background:var(--paper);
+  border:2px dashed var(--line);display:grid;place-items:center;text-align:center;color:var(--muted);padding:1.5rem;font-size:.95rem}
+
+/* contact */
+.contact{background:var(--green);color:var(--on-green);border-top:0}
+.contact .mail{display:inline-block;font-weight:800;font-size:clamp(1.6rem,6.5vw,3.4rem);line-height:1.05;letter-spacing:-.02em;
+  text-decoration-color:var(--brown);overflow-wrap:anywhere}
+.contact ul{list-style:none;margin:2rem 0 0;padding:0;display:flex;flex-wrap:wrap;gap:.75rem 2rem}
+.contact small{display:block;margin-top:3rem;color:var(--on-green-muted)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.gauge .bar{transition:none}}
+
+/* student hero + deep dive */
+.hero{align-items:center}
+.face{display:block;width:9.5rem;height:9.5rem;object-fit:cover;border-radius:5rem 5rem 1rem 1rem;border:3px solid var(--green);margin-bottom:1.5rem;background:var(--paper)}
+.facts{margin:0;display:grid;gap:1rem}
+.facts dt{font-size:.9rem;color:var(--on-green-muted)}
+.facts dd{margin:.1rem 0 0;font-weight:600;font-size:1.1rem;line-height:1.3}
+.lede{font-size:1.25rem;max-width:42rem}
+.dive h3{font-size:clamp(1.4rem,3.5vw,1.8rem);font-weight:800;line-height:1.1;margin:3.25rem 0 1rem;padding-top:1rem;border-top:1px solid var(--line)}
+.dive h4,.chain h4{margin:0 0 .3rem;font-size:1.2rem;font-weight:800;line-height:1.1}
+.dive .chain{margin:1.5rem 0}
+.dive .eq{border-bottom:0;margin-bottom:0}
+.dive .inst{max-width:36rem}
+.steps{margin:1.25rem 0 0;padding:0;list-style:none;counter-reset:s;display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:.75rem}
+.steps li{counter-increment:s;background:var(--paper);border:2px solid var(--ink);border-radius:1rem;padding:1rem;font-size:.97rem}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:1.9rem;height:1.9rem;border-radius:50%;background:var(--green);color:var(--on-green);font-weight:800;margin-bottom:.6rem}
+.steps b{display:block;font-size:1.1rem}
+.grp{margin:2rem 0 .6rem !important;font-size:1.15rem !important}
+.src{margin:0 0 1.25rem;padding:0;list-style:none;max-width:44rem}
+.src li{padding:.7rem 0 .7rem 1rem;border-left:4px solid var(--brown);margin-bottom:.6rem;font-size:.98rem}
+.links{display:flex;flex-wrap:wrap;gap:.6rem;max-width:none}
+.links a{background:var(--green);color:var(--on-green);text-decoration:none;font-weight:600;padding:.55rem 1rem;border-radius:2rem}
+.links a:hover{text-decoration:underline}
+.rq{margin:0 0 1.25rem;padding:1.25rem 1.5rem;background:var(--green);color:var(--on-green);border-radius:1rem 1rem 1rem 0;font-size:clamp(1.25rem,3.4vw,1.7rem);font-weight:600;line-height:1.25;max-width:44rem}
+.tbl{border-collapse:collapse;margin:0 0 1rem;max-width:44rem;width:100%}
+.tbl th,.tbl td{text-align:left;vertical-align:top;padding:.55rem .9rem .55rem 0;border-bottom:1px solid var(--line);font-size:.98rem}
+.tbl th{font-weight:800;white-space:nowrap}
+.scroll{overflow-x:auto}
+.tbl.wide{min-width:30rem}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="me" href="#top">Cadler D'ahiti</a>
+    <nav aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#research">Research</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <div>
+      <img class="face" src="headshot.jpg" alt="Cadler D'ahiti" width="200" height="200">
+      <h1>Cadler D'ahiti</h1>
+      <p class="who">Data Science and Computer Science student at the University of Wisconsin–Milwaukee. McNair Scholar, NSBE Programs Chair, and the person behind Telio.</p>
+    </div>
+    <dl class="inst facts">
+      <div><dt>Studying</dt><dd>B.S. Data Science and B.S. Computer Science</dd></div>
+      <div><dt>Graduating</dt><dd>May 2028 (anticipated)</dd></div>
+      <div><dt>Honors</dt><dd>Dean's List since Fall 2024, Lawton Scholar, Patricia H. Weisberg Scholar, Project Lead the Way Scholar</dd></div>
+      <div><dt>Writes code in</dt><dd>Python, Java, R, SQL, VBA</dd></div>
+      <div><dt>Speaks</dt><dd>English, French, Creole</dd></div>
+    </dl>
+  </div>
+
+  <section id="about">
+    <div class="wrap">
+      <h2>About me</h2>
+      <p>I'm a student at UW–Milwaukee working toward two degrees, one in Data Science and one in Computer Science. I like work that sits between software and scholarship: I write the code a question needs, then study what it shows.</p>
+      <p>Outside class I run events for our NSBE chapter as Programs Chair and work in the Dean of Students office. Through the McNair Scholars Program I research how AI can use less energy, mentored by Dr. Martin.</p>
+      <p><a href="Cadler-Dahiti-Resume.pdf">Download my résumé (PDF)</a></p>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <h2>Experience</h2>
+      <ul class="index">
+        <li><div><h3>Programs Chair, NSBE</h3><div class="meta">September 2024 to present</div></div>
+          <p>I manage events for the chapter, and handle attendance reports, fundraising and networking for collaboration events.</p></li>
+        <li><div><h3>Office Assistant, Dean of Students</h3><div class="meta">UW–Milwaukee, September 2024 to present</div></div>
+          <p>Administrative support for the office's daily work, including confidential student records and communications.</p></li>
+        <li><div><h3>Tour Guide, TRIO</h3><div class="meta">UW–Milwaukee, September 2024 to May 2025</div></div>
+          <p>Led prospective students and families around campus and answered questions about academic programs and campus life.</p></li>
+        <li><div><h3>Member, Leaders Igniting Transformation</h3><div class="meta">September 2024 to October 2025</div></div>
+          <p>A student organization for political awareness. We encouraged students to vote and follow the news.</p></li>
+        <li><div><h3>Sales Associate, Cornelier Fireworks</h3><div class="meta">Beloit, WI, May 2023 to August 2024</div></div>
+          <p>Helped more than 100 customers choose fireworks, managed inventory and processed transactions.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <h2>Projects</h2>
+      <div class="built">
+        <div><h3>Telio</h3><div class="kind">Python, Claude API</div>
+          <p>Scores prompts on readability, vocabulary variety and hedging, then logs real token usage and estimates energy cost.</p></div>
+        <div><h3>Portfolio site</h3><div class="kind">Flask, Python</div>
+          <p>A Python-first site with a live Telio demo. <a href="https://github.com/CadlerD/Portfolio">See the code on GitHub</a>.</p></div>
+        <div><h3>Study AI agent</h3><div class="kind">Research software</div>
+          <p>The agent participants use in the experimental part of my study.</p></div>
+        <div><h3>Survey instrument</h3><div class="kind">Research design</div>
+          <p>The questionnaire that goes with the agent.</p></div>
+        <div><h3>Shareholder profit study</h3><div class="kind">Finance data research, 2024 to 2025</div>
+          <p>Gathered daily financial data for securities identified by CUSIP to see whether shareholders were making or losing money on them.</p></div>
+        <div><h3>Lawn service manager</h3><div class="kind">Java, 2025</div>
+          <p>An object-oriented system for service requests, pricing calculations and report summaries.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="research" class="dive">
+    <div class="wrap">
+      <h2>Research deep dive: Telio and SCEF</h2>
+      <p class="links"><a href="https://prezi.com/view/gRfZVtuLNhrL6Lubq0Kf/?referral_token=jZ-iSvlnB3FN">Watch the presentation</a><a href="Annotated-Bibliography.pdf">Read the bibliography</a></p>
+      <p class="lede">My McNair proposal, "Energy Efficient AI &amp; Ethical Studies" (June 2026), argues that wordy, poorly structured input makes AI cost more energy than it needs to. Telio is the tool I built to test that.</p>
+
+      <h3>The question</h3>
+      <blockquote class="rq">How do data structure and agent design choices jointly shape the energy cost and ethical reliability of AI systems?</blockquote>
+      <p>Existing research treats these as separate conversations. Energy researchers study data centers, language researchers study output quality, and ethicists study responsible use. No one connects the three, so a well-meaning fix in one area, such as better prompts or more autonomous agents, can quietly raise costs in another.</p>
+      <p>Most talk about AI's energy use is about hardware: chips, data centers, cooling. My proposal looks earlier in the chain. It asks how much of the energy bill is decided by the quality of what people feed the model and by the choices developers make when they build around it.</p>
+      <p>The literature review links linguistic inefficiency to energy inefficiency, and points to a gap: there is little structured, replicable process for developing AI productively.</p>
+
+      <h3>The framework: SCEF</h3>
+      <p>The Structural–Computational Efficiency Framework is my own model. Its claim is that energy use is a downstream result of structure.</p>
+      <div class="chain">
+        <div class="step"><h4>Structure</h4><p>How well the input is written and organized, and how the system is designed.</p></div>
+        <div class="to" aria-hidden="true"></div>
+        <div class="step"><h4>Computation</h4><p>The work the model has to do to handle that input.</p></div>
+        <div class="to" aria-hidden="true"></div>
+        <div class="step"><h4>Energy</h4><p>What that work costs to run.</p></div>
+      </div>
+      <div class="eq">E&#7522; = f(C&#7522;) = f(S&#7522;, A&#7522; | H&#7522;, T&#7522;)</div>
+      <table class="tbl">
+        <tr><th>E</th><td>Energy consumed</td></tr>
+        <tr><th>C</th><td>Computational load</td></tr>
+        <tr><th>S</th><td>Structural entropy of the input data, meaning how disorganized it is</td></tr>
+        <tr><th>A</th><td>Developer and agent design choices</td></tr>
+        <tr><th>H, T</th><td>Hardware efficiency and task complexity, held constant as controls</td></tr>
+      </table>
+
+      <h3>Hypotheses</h3>
+      <ul class="index">
+        <li><div><h4>H1</h4></div><p>Better-structured input leads to lower computational load, holding task difficulty constant.</p></li>
+        <li><div><h4>H2</h4></div><p>Lower computational load leads to lower energy consumption, holding hardware constant.</p></li>
+        <li><div><h4>H3</h4></div><p>Agent designs with explicit guardrails use less energy and are more accurate.</p></li>
+        <li><div><h4>H4</h4></div><p>The link between structure and energy holds across architectures, but its strength varies with hardware and task complexity.</p></li>
+      </ul>
+
+      <h3>What the data should show</h3>
+      <p>If the framework holds, I expect three things.</p>
+      <ul class="src">
+        <li><b>Better-structured prompts cost less.</b> They lead to measurably lower token counts and energy estimates for responses of the same quality. That gives developers a low-cost way to cut energy use without new hardware.</li>
+        <li><b>The savings level off.</b> The energy-savings curve flattens as structure improves. Structure helps up to a baseline and is not a cure-all after that.</li>
+        <li><b>Efficiency and accuracy improve together.</b> This challenges the idea that the two trade off, which matters for ethical AI use and not only for cost.</li>
+      </ul>
+
+      <h3>The instrument: how Telio works</h3>
+      <p>Telio is a Python program. For every prompt it runs the same four steps.</p>
+      <ol class="steps">
+        <li><b>Score the wording.</b> Three measures: readability (Flesch Reading Ease), redundancy (type-token ratio, or how varied the vocabulary is) and ambiguity (hedge-word density, or how much of it is "maybe" and "kind of").</li>
+        <li><b>Send the prompt.</b> The prompt goes to the Claude API as written.</li>
+        <li><b>Log the real cost.</b> Telio records the actual token usage that comes back.</li>
+        <li><b>Estimate the energy.</b> Tokens are converted to an energy figure using a configurable constant taken from cited sources.</li>
+      </ol>
+
+      <h3>What Telio measures</h3>
+      <div class="scroll"><table class="tbl wide">
+        <tr><th>Measure</th><th>What it captures</th><th>Maps to</th></tr>
+        <tr><td>Flesch Reading Ease</td><td>Sentence-level readability and complexity</td><td>Proxy for S</td></tr>
+        <tr><td>Type-token ratio</td><td>Lexical diversity and redundancy</td><td>Proxy for S</td></tr>
+        <tr><td>Hedge-word density</td><td>Ambiguity</td><td>Proxy for S</td></tr>
+        <tr><td>Real token usage</td><td>Actual computational load, logged through the Claude API</td><td>C</td></tr>
+        <tr><td>Energy conversion estimate</td><td>Tokens converted to an estimated energy draw</td><td>E</td></tr>
+      </table></div>
+
+      <h3>Try the scoring step</h3>
+      <div class="inst">
+        <label for="prompt">Edit this prompt and watch its scores change</label>
+        <textarea id="prompt">I was kind of wondering if you could maybe help me write something that sort of explains how neural networks basically work, I guess?</textarea>
+        <div class="gauge"><div class="lab"><span>Flesch Reading Ease</span><b id="v-fre">0</b></div><div class="track"><div class="bar" id="b-fre"></div></div></div>
+        <div class="gauge"><div class="lab"><span>Type-token ratio</span><b id="v-ttr">0</b></div><div class="track"><div class="bar" id="b-ttr"></div></div></div>
+        <div class="gauge"><div class="lab"><span>Hedge words</span><b id="v-hdg">0</b></div><div class="track"><div class="bar" id="b-hdg"></div></div></div>
+        <p class="fine">A simplified browser version of step one. It does not call the API or estimate energy.</p>
+      </div>
+
+      <h3>Study design</h3>
+      <div class="two">
+        <p><b>Qualitative, experimental.</b> Participants work with an AI agent I developed, then answer a survey I designed alongside it.</p>
+        <p><b>Quantitative, correlational.</b> An analysis of educational data and energy consumption data, looking at how the two move together.</p>
+      </div>
+
+      <h3>Controls and limitations</h3>
+      <div class="two">
+        <div>
+          <h4>Controlled for</h4>
+          <ul class="src">
+            <li><b>Hardware efficiency (H).</b> Chip generation and cooling infrastructure.</li>
+            <li><b>Task complexity (T).</b> Harder queries need more computation regardless of structure.</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Open limitations</h4>
+          <ul class="src">
+            <li><b>Flesch bias.</b> Flesch Reading Ease marks down academic and technical vocabulary, so it can undercount the quality of a complex but well-structured prompt. I disclose this as a limitation.</li>
+            <li><b>Estimated energy.</b> The energy and carbon conversion constants come from the literature. They are not measured hardware output.</li>
+            <li><b>One tool.</b> Findings from a single custom tool may not generalize to every model architecture or provider without replication.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>What the literature says, and what it leaves out</h3>
+      <p>I read ten sources for the proposal. They agree that AI's energy use is large and growing. None of them measures energy at the level of a single prompt, which is the gap my study works in.</p>
+
+      <h4 class="grp">The scale of the problem</h4>
+      <ul class="src">
+        <li><b>Kandemir (2025)</b>, Penn State Institute of Energy and the Environment. Data centers used 4.4% of U.S. electricity in 2023, and energy use by GPU-accelerated AI servers grew from under 2 TWh in 2017 to more than 40 TWh in 2023. It does not look at how prompt quality affects energy use.</li>
+        <li><b>Jonker &amp; Gomstyn (n.d.)</b>, IBM Think. Explains what sets an AI data center apart and reports a projected 165% rise in data center electricity demand by 2030. It covers hardware only.</li>
+        <li><b>Eilam et al. (2024)</b>, IEEE Transactions on Semiconductor Manufacturing. Specialized hardware cuts operating energy but raises the emissions built into manufacturing. It offers a framework and no new measurements.</li>
+        <li><b>Mahmood et al. (2025)</b>, NTT Technical Review. Proposes moving data center workloads to where and when renewable power is available. Japan curtailed more than 2 billion kWh of renewable output in fiscal 2024.</li>
+        <li><b>Berenjian et al. (2021)</b>, Journal of Intelligent &amp; Fuzzy Systems. A task scheduling algorithm that cut energy use by up to 58.3% in simulated cloud data centers.</li>
+      </ul>
+
+      <h4 class="grp">Agents and the structure of their input</h4>
+      <ul class="src">
+        <li><b>Gutiérrez Tafoya et al. (2026)</b>, International Journal of Combinatorial Optimization Problems and Informatics. The closest study to mine. Restructuring one source document improved a conversational agent's answers on most quality measures. It did not measure whether better structure also lowers computing or energy cost.</li>
+        <li><b>Dautenhahn (1998)</b>, Applied Artificial Intelligence. A foundational framework for designing socially intelligent agents. Written long before anyone asked what such agents cost to run at scale.</li>
+        <li><b>Hinov (2026)</b>, AI. A reference architecture for AI agents that run power grids under human supervision. It does not count the energy the agents themselves use.</li>
+        <li><b>Lan (2026)</b>, Beijing Review. Describes China's national push to deploy AI agents, and gives my introduction its "passive response" framing.</li>
+      </ul>
+
+      <h4 class="grp">How people use AI</h4>
+      <ul class="src">
+        <li><b>Radday &amp; Mervis (2026)</b>, Educational Leadership. Argues schools should teach students to apply AI to real problems instead of using it for quick answers. It draws on Brynjolfsson et al. (2025) for labor-market data.</li>
+      </ul>
+      <p><a href="Annotated-Bibliography.pdf">Download the full annotated bibliography (PDF)</a></p>
+
+      <h3>Where it stands</h3>
+      <ul class="index">
+        <li><div><h4>Proposal</h4></div><p>Drafted in full: introduction, literature review, background, theoretical framework, assumptions, hypotheses, predictions and APA references.</p></li>
+        <li><div><h4>Telio</h4></div><p>Built and working, with a README and example prompts.</p></li>
+        <li><div><h4>Results</h4></div><p>Not yet. Data collection comes next, and the findings will be added here when it is done.</p></li>
+        <li><div><h4>Presentation</h4></div><p>14 slides and a speaking script, in three parts: Background, Research Structure, Further Steps. <a href="https://prezi.com/view/gRfZVtuLNhrL6Lubq0Kf/?referral_token=jZ-iSvlnB3FN">Watch the presentation on Prezi</a>.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <h2>Say hello</h2>
+      <a class="mail" href="mailto:Cadler12glove@gmail.com">Cadler12glove@gmail.com</a>
+      <ul>
+        <li><a href="https://www.linkedin.com/in/cadler-d-ahiti-107260285/">LinkedIn</a></li>
+        <li><a href="https://github.com/CadlerD">GitHub: CadlerD</a></li>
+        <li><a href="Cadler-Dahiti-Resume.pdf">Download my résumé (PDF)</a></li>
+      </ul>
+      <small>Cadler D'ahiti, University of Wisconsin–Milwaukee</small>
+    </div>
+  </section>
+</main>
+
+<script>
+(function(){
+  var HEDGES=["kind of","sort of","i think","i guess","i was wondering","maybe","perhaps","possibly","probably","might","could","somewhat","basically","just","seems","apparently"];
+  function syl(w){w=w.toLowerCase().replace(/[^a-z]/g,"");if(!w)return 0;if(w.length<=3)return 1;
+    w=w.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/,"").replace(/^y/,"");
+    var m=w.match(/[aeiouy]{1,2}/g);return m?m.length:1;}
+  function set(id,text,pct){document.getElementById("v-"+id).textContent=text;
+    document.getElementById("b-"+id).style.width=Math.max(0,Math.min(100,pct))+"%";}
+  function score(){
+    var t=document.getElementById("prompt").value;
+    var words=t.match(/[A-Za-z0-9']+/g)||[],n=words.length;
+    if(!n){set("fre","–",0);set("ttr","–",0);set("hdg","–",0);return;}
+    var sents=Math.max(1,(t.match(/[.!?]+/g)||[]).length),s=0,u={};
+    words.forEach(function(w){s+=syl(w);u[w.toLowerCase()]=1;});
+    var fre=206.835-1.015*(n/sents)-84.6*(s/n);
+    var ttr=Object.keys(u).length/n;
+    var low=" "+t.toLowerCase().replace(/[^a-z' ]/g," ").replace(/\s+/g," ")+" ",h=0;
+    HEDGES.forEach(function(x){h+=low.split(" "+x+" ").length-1;});
+    var hd=h/n*100;
+    set("fre",fre.toFixed(1),fre);set("ttr",ttr.toFixed(2),ttr*100);set("hdg",hd.toFixed(0)+"%",hd/30*100);
+  }
+  document.getElementById("prompt").addEventListener("input",score);score();
+})();
+</script>
+</body>
+</html>
